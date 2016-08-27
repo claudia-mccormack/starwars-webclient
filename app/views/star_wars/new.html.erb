@@ -1,0 +1,20 @@
+<h2>Set a Course for Adventure!</h2>
+<%= form_tag("/star_wars", method: :post) do %>
+ <div>
+  <%= label_tag(:character) %>
+  <%= text_field_tag(:character) %>
+</div>
+<div>
+ <%= label_tag(:droid) %>
+ <%= text_field_tag(:droid) %>
+</div>
+<div>
+  <%= label_tag(:planet) %>
+  <%= text_field_tag(:planet) %>
+</div>
+<div>
+  <%= label_tag(:quote) %>
+  <%= text_field_tag(:quote) %>
+</div>
+<%= submit_tag("Create Adventure")%>
+<% end %>

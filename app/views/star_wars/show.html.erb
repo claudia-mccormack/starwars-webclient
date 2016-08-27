@@ -1,0 +1,9 @@
+<h2>A long time ago, in a galaxy far, far away...</h2>
+<ul>
+  <li><%= @starwar.teamwork %></li>
+  <li><%= @starwar.adventure %></li>
+  <li><%= @starwar.lines %></li>
+</ul>
+
+<%= link_to 'Edit this Adventure', "/starwars/#{@starwar.id}/edit" %><br>
+<%= link_to 'Delete this Adventure', "/starwars/#{@starwar.id}", method: :delete %>

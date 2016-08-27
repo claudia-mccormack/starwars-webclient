@@ -1,0 +1,20 @@
+<h2>Change Course!</h2>
+<%= form_tag("/star_wars/#{@starwar['id']}", method: :patch) do %>
+ <div>
+  <%= label_tag(:character) %>
+  <%= text_field_tag(:character, @starwar["character"]) %>
+</div>
+<div>
+ <%= label_tag(:droid) %>
+ <%= text_field_tag(:droid, @starwar["droid"]) %>
+</div>
+<div>
+  <%= label_tag(:planet) %>
+  <%= text_field_tag(:planet, @starwar["planet"]) %>
+</div>
+<div>
+  <%= label_tag(:quote) %>
+  <%= text_field_tag(:quote, @starwar["quote"]) %>
+</div>
+<%= submit_tag("Submit Course Correction")%>
+<% end %>
