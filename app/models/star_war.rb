@@ -9,12 +9,22 @@ attr_accessor :character, :droid, :planet, :quote, :id
   end
 
   def self.find_by(options)
-    star_wars_hash = Unirest.get("http://localhost:3000/api/v2/starwars/#{options[:id]}.json").body
+    star_wars_hash = Unirest.get("http://localhost:3000/api/v2/starwars/#{options[:id]}.json",
+      headers: {"Accept" => "application/json",
+                "X-User-Email" => ENV['API_EMAIL'],
+                "Authorization" => "Token token=#{ENV['API_KEY']}"
+               }
+      ).body
     StarWar.new(star_wars_hash)
   end
 
   def self.all
-    all_star_wars = Unirest.get("http://localhost:3000/api/v2/starwars.json").body
+    all_star_wars = Unirest.get("http://localhost:3000/api/v2/starwars.json",
+    headers: {"Accept" => "application/json",
+              "X-User-Email" => "claudia@example.com",
+              "Authorization" => "Token token=elephant"
+             }
+      ).body
     @starwars = []
     all_star_wars.each do |star_war|
       @starwars << StarWar.new(star_war)

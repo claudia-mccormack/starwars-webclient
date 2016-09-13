@@ -13,7 +13,7 @@ class StarWarsController < ApplicationController
 
   def create
     @starwar = Unirest.post("http://localhost:3000/api/v2/starwars",
-    headers:{"Accept" => "application/json"},
+    headers:{"Accept" => "application/json", "email" => "claudia@example.com", "api_key" => "elephant"},
     parameters:{character: params[:character],
       droid: params[:droid],
       planet: params[:planet],
